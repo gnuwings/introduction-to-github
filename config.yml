@@ -234,28 +234,4 @@ steps:
       branch: '%payload.pull_request.head.ref%'
       url: '%payload.pull_request.html_url%/files'
 
-# 7
-- title: Respond to a review
-  description: Respond to a PR review.
-  translations:
-    es:
-      title: Responde a una revisión
-      description: Responde a una revisión en tu solicitud de extracción.
-    fr:
-      title: Réponse à une revue
-      description: Répondez à la relecture de votre Pull Request.
-    ja:
-      title: レビューに対応しよう
-      description: プルリクエストへのレビューへの対応をしましょう。 
-  event: pull_request.synchronize
-  link: '{{ repoUrl }}/pull/3'
-  actions:
-  - type: removeBranchProtection
-  - type: createReview
-    body: 07_pr-succeeds.md
-    event: APPROVE
-    data:
-      branch: '%payload.pull_request.head.ref%'
-
-
 
