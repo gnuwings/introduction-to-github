@@ -257,5 +257,33 @@ steps:
     data:
       branch: '%payload.pull_request.head.ref%'
       
+# 8
+- title: Merge your pull request
+  description: Make your changes live by merging your PR.
+  translations:
+    es:
+      title: Fusiona tu solicitud de extracción
+      description: Publica tus cambios al fusionar tu solicitud de extracción.
+    fr:
+      title: Fusion de la Pull Request
+      description: Livrez vos changement en fusionant votre Pull Request.
+    ja:
+      title: プルリクエストをマージしよう
+      description: プルリクエストをマージすることで変更を取り込みましょう。   
+  event: pull_request.closed
+  link: '{{ repoUrl }}/pull/3'
+  actions:
+  - type: gate
+    left: '%payload.pull_request.merged%'
+    else:
+      - type: respond
+        with: 08_reopen.md
+  - type: respond
+    with: 08_reminder-delete.md
+
+tags: [
+  "Git","GitHub Pages","Branches","Commits","Pull Requests"
+]
+video: "sz6zfrQpCQg"
 
 
